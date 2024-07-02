@@ -7,11 +7,15 @@ export async function GET(request: Request) {
 
 export type getUserType = Awaited<ReturnType<typeof getUserById>>
 
-export const getUserById = async(user_id: any) => {
-    const user = await prisma.user.findMany({
+
+async function getUserById(user_id: any) {
+    const users = await prisma.user.findMany({
         where: {
             id: user_id
         }
-    })
-    return user
+    });
+
+    return users.map((user) => ({
+        ...user
+    }));
 }
