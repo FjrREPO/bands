@@ -13,6 +13,7 @@ import UserButton from "./auth/user-button";
 
 const items = [
     { label: "Band", link: "/dashboard/band" },
+    { label: "User", link: "/dashboard/users" },
 ];
 
 export default function NavbarDashboard() {
