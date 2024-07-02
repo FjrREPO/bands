@@ -12,9 +12,9 @@ import ImageUpload from '@/components/uploader/image-upload';
 import { musicGenres } from '@/data/music-genres';
 import { Label } from '@/components/ui/label';
 import { Loader } from 'lucide-react';
-import { SpotifyContext } from '@/components/providers/SpotifyProviders';
-import { getBandsSpotify } from '@/lib/spotify/search/get-band-spotify';
+import { SpotifyContext } from '@/components/providers/spotify-provider';
 import { getBandsByIdSpotify } from '@/lib/spotify/band/get-band-byid-spotify';
+import { getBandsSpotify } from '@/lib/spotify/search/get-band-spotify';
 
 interface Props {
     trigger: React.ReactNode;

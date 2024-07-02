@@ -29,15 +29,12 @@ export const {
   },
   callbacks: {
     async signIn({ user, account }) {
-      //Allow OAuth without email verification
       if (account?.provider !== "credentials") return true;
 
       const existingUser = await getUserById(user.id);
 
-      //Prevent sign in without email verification
       if (!existingUser?.emailVerified) return false;
 
-      //2FA check
       if (existingUser.isTwoFactorEnabled) {
         const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(
           existingUser.id
@@ -45,7 +42,6 @@ export const {
 
         if (!twoFactorConfirmation) return false;
 
-        //Delete the two factor confirmation for next sign in
         await prisma.twoFactorConfirmation.delete({
           where: { id: twoFactorConfirmation.id },
         });

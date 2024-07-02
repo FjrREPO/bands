@@ -6,8 +6,8 @@ import Image from "next/image"
 import { useCallback } from "react"
 
 interface ImageUploadProps {
-    onChange: (value: string[]) => void
-    value: string[]
+    onChange: (value: string) => void
+    value: string
 }
 
 declare global {
@@ -19,8 +19,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     value
 }) => {
     const handleUpload = useCallback((result: any) => {
-        onChange([...value, result.info.secure_url]);
-    }, [onChange, value]);
+        onChange(result.info.secure_url);
+    }, [onChange]);
 
     return <CldUploadWidget
         onSuccess={handleUpload}
@@ -41,16 +41,13 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                     )}
                     {value && value.length > 0 && (
                         <div className="flex flex-row flex-wrap gap-5 w-fit h-full">
-                            {value.map((imageUrl, index) => (
-                                <Image
-                                    key={index}
-                                    alt={`Uploaded image ${index + 1}`}
-                                    width={100}
-                                    height={100}
-                                    style={{ objectFit: 'contain' }}
-                                    src={imageUrl}
-                                />
-                            ))}
+                            <Image
+                                alt={`Uploaded image`}
+                                width={100}
+                                height={100}
+                                style={{ objectFit: 'contain' }}
+                                src={value}
+                            />
                         </div>
                     )}
                 </div>
