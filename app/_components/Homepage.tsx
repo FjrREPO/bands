@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { MdLibraryMusic } from 'react-icons/md'
 import Swal from 'sweetalert2';
 
-export default function Homepage({ user }: { user: any }) {
+export default function Homepage() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -32,7 +32,7 @@ export default function Homepage({ user }: { user: any }) {
   
   return (
     <div className='w-screen h-svh overflow-x-hidden'>
-      <Navbar user={user} />
+      <Navbar />
       <div
         className='w-full h-full'
         style={{ backgroundImage: `url(https://hypeabis.id/assets/content/20230228154137000000BandRoktimtoomeyunsplash.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}

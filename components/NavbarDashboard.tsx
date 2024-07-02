@@ -15,13 +15,11 @@ const items = [
     { label: "Band", link: "/dashboard/band" },
 ];
 
-export default function NavbarDashboard({ users }: { users: any }) {
-    const filteredItems = users === "ADMIN" ? items : items.filter(item => item.label !== "USER");
-
+export default function NavbarDashboard() {
     return (
         <>
-            <DesktopNavbar items={filteredItems} />
-            <MobileNavbar items={filteredItems} />
+            <DesktopNavbar items={items} />
+            <MobileNavbar items={items} />
         </>
     );
 }

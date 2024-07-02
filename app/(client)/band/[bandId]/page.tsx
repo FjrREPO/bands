@@ -1,20 +1,16 @@
-'use client'
-
 import React from 'react'
 import DetailBand from './_components/DetailBand'
 import Navbar from '@/components/Navbar'
-import { useSession } from 'next-auth/react'
 
 interface IParams {
     bandId: string
 }
 
 export default function page({ params }: { params: IParams }) {
-    const user = useSession().data?.user;
 
     return (
         <div className='w-screen h-svh'>
-            <Navbar user={user}/>
+            <Navbar />
             <DetailBand bandId={params.bandId}/>
         </div>
     )

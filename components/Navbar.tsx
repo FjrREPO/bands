@@ -9,13 +9,15 @@ import Logo from "./Logo";
 import { Button, buttonVariants } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import UserButton from "./auth/user-button";
+import { useSession } from "next-auth/react";
 
 const items = [
   { label: "About", link: "/about", icon: <Info />, roles: ['USER'] },
   { label: "Dashboard", link: "/dashboard/band", icon: <FolderDot />, roles: ['ADMIN'] },
 ];
 
-export default function Navbar({ user }: { user: any }) {
+export default function Navbar() {
+  const user = useSession().data?.user;
   return (
     <>
       <DesktopNavbar user={user} />
