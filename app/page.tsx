@@ -1,11 +1,10 @@
-'use client'
-
+import getUser from "@/actions/user/get-user";
 import Homepage from "./_components/Homepage";
-import { useSession } from "next-auth/react";
 
-export default function Home() {
-  const { data: session, status } = useSession();
+export default async function Home() {
+  const user = await getUser()
+
   return (
-      <Homepage user={session?.user}/>
+      <Homepage user={user}/>
   );
 }
