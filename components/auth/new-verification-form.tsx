@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react"
 
 import { newVerification } from "@/actions/auth/new-verification";
 import { CardWrapper } from "@/components/auth/card-wrapper";
@@ -47,13 +46,11 @@ export const NewVerificationForm = () => {
       backButtonLabel="Back to login"
       backButtonHref="/auth/login"
     >
-      <Suspense>
-        <div className="w-full flex items-center justify-center">
-          {!success && !error && <BeatLoader />}
-          <FormSuccess message={success} />
-          {!success && <FormError message={error} />}
-        </div>
-      </Suspense>
+      <div className="w-full flex items-center justify-center">
+        {!success && !error && <BeatLoader />}
+        <FormSuccess message={success} />
+        {!success && <FormError message={error} />}
+      </div>
     </CardWrapper>
   );
 };
