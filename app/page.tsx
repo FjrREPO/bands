@@ -1,8 +1,10 @@
-import getUser from "@/actions/user/get-user";
+'use client'
+
+import { useSession } from "next-auth/react";
 import Homepage from "./_components/Homepage";
 
-export default async function Home() {
-  const user = await getUser()
+export default function Home() {
+  const user = useSession().data?.user;
 
   return (
       <Homepage user={user}/>

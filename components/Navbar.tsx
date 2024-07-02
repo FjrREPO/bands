@@ -11,8 +11,8 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import UserButton from "./auth/user-button";
 
 const items = [
-  { label: "About", link: "/about", icon: <Info />, roles: ['user'] },
-  { label: "Dashboard", link: "/dashboard/band", icon: <FolderDot />, roles: ['admin', 'manager'] },
+  { label: "About", link: "/about", icon: <Info />, roles: ['USER'] },
+  { label: "Dashboard", link: "/dashboard/band", icon: <FolderDot />, roles: ['ADMIN'] },
 ];
 
 export default function Navbar({ user }: { user: any }) {
@@ -27,7 +27,7 @@ export default function Navbar({ user }: { user: any }) {
 function MobileNavbar({ user }: { user: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const userRole = user?.role;
-  const filteredItems = items.filter(item => item.roles.includes(userRole) || item.roles.includes('user'));
+  const filteredItems = items.filter(item => item.roles.includes(userRole) || item.roles.includes('USER'));
 
   return (
     <div
@@ -78,7 +78,7 @@ function MobileNavbar({ user }: { user: any }) {
 
 function DesktopNavbar({ user }: { user: any }) {
   const userRole = user?.role;
-  const filteredItems = items.filter(item => item.roles.includes(userRole) || item.roles.includes('user'));
+  const filteredItems = items.filter(item => item.roles.includes(userRole) || item.roles.includes('USER'));
 
   return (
     <div

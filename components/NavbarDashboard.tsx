@@ -8,15 +8,15 @@ import { useState } from "react";
 import Logo from "./Logo";
 import { Button, buttonVariants } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import UserButton from "./auth/UserButton";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import UserButton from "./auth/user-button";
 
 const items = [
     { label: "Band", link: "/dashboard/band" },
 ];
 
 export default function NavbarDashboard({ users }: { users: any }) {
-    const filteredItems = users.role === "admin" ? items : items.filter(item => item.label !== "Users");
+    const filteredItems = users === "ADMIN" ? items : items.filter(item => item.label !== "USER");
 
     return (
         <>

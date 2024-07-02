@@ -1,14 +1,16 @@
+'use client'
+
 import Navbar from '@/components/Navbar'
 import React from 'react'
 import Search from './_components/Search'
-import getUser from '@/actions/user/get-user'
+import { useSession } from 'next-auth/react';
 
 interface IParams {
     searchKeyword: string
 }
 
-export default async function page({ params }: { params: IParams }) {
-    const user = await getUser()
+export default function page({ params }: { params: IParams }) {
+    const user = useSession().data?.user;
 
     return (
         <div className='w-screen h-svh'>

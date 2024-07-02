@@ -3,7 +3,6 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/providers/providers";
 import { SessionProvider } from "next-auth/react";
-import MusicLayout from "@/components/music/music-layout";
 
 export const metadata: Metadata = {
   title: "Faketify",
